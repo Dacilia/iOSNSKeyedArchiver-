@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "UserInfo.h"
 @interface ViewController ()
 
 @end
@@ -16,14 +16,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    UserInfo* user=[[UserInfo alloc]init];
+    user.name=@"李大致";
+    user.sex=@"男";
+    [user save];
+    UserInfo*user2=[UserInfo sharedMemory];
+    NSLog(@"%@",user2.name);
+
 }
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 
 
 @end
